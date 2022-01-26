@@ -1,0 +1,15 @@
+C:\Users\Hust\source\repos\News.BLL\bin\Debug\net5.0\News.BLL.deps.json
+C:\Users\Hust\source\repos\News.BLL\bin\Debug\net5.0\News.BLL.dll
+C:\Users\Hust\source\repos\News.BLL\bin\Debug\net5.0\ref\News.BLL.dll
+C:\Users\Hust\source\repos\News.BLL\bin\Debug\net5.0\News.BLL.pdb
+C:\Users\Hust\source\repos\News.BLL\bin\Debug\net5.0\News.DAL.dll
+C:\Users\Hust\source\repos\News.BLL\bin\Debug\net5.0\News.DAL.pdb
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.csproj.AssemblyReference.cache
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.AssemblyInfoInputs.cache
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.AssemblyInfo.cs
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.dll
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\ref\News.BLL.dll
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.pdb
+C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.csproj.CopyComplete

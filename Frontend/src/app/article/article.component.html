@@ -1,0 +1,39 @@
+
+
+  <h2>{{news.title}}</h2>
+  <p>{{news.content}}</p>
+  <p class="text-secondary">Written by {{news.user.userName}} on {{news.date | date:'EEEE, MMMM d, y' }}</p>
+  <p class="badge bg-secondary">{{news.category.title}}</p>
+
+
+  <hr>
+  <div *ngIf="this.authService.isAuthenticated()">
+    <h2>Leave a comment:</h2>
+    <form [formGroup]="commentForm" class="form">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Write your comment.." type="text" formControlName="text" />
+      </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="addComment()">
+      Send
+    </button>
+  </div>
+  <Br>
+  <h2>Comments:</h2>
+
+  <script>console.log(news);</script>
+  <div *ngFor="let comment of news.articleComment">
+    <div class="card">
+      <div class="card-body">
+        <p>Comment by: {{comment.userId}}</p>
+        <p>Posted on: {{comment.date | date:'EEEE, MMMM d, y'}}</p>
+        <p>{{comment.content}}</p>
+        <button class="btn btn-danger"*ngIf="this.authService.isAdmin()"(click)="deleteComment(comment)">Delete comment</button>
+      </div>
+    </div>
+    <br>
+  </div>
+
+
+

@@ -1,0 +1,15 @@
+C:\Users\Hust\source\repos\News.DAL\bin\Debug\net5.0\News.DAL.deps.json
+C:\Users\Hust\source\repos\News.DAL\bin\Debug\net5.0\News.DAL.runtimeconfig.json
+C:\Users\Hust\source\repos\News.DAL\bin\Debug\net5.0\News.DAL.runtimeconfig.dev.json
+C:\Users\Hust\source\repos\News.DAL\bin\Debug\net5.0\News.DAL.dll
+C:\Users\Hust\source\repos\News.DAL\bin\Debug\net5.0\ref\News.DAL.dll
+C:\Users\Hust\source\repos\News.DAL\bin\Debug\net5.0\News.DAL.pdb
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.csproj.AssemblyReference.cache
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.AssemblyInfoInputs.cache
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.AssemblyInfo.cs
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.dll
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\ref\News.DAL.dll
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.pdb
+C:\Users\Hust\source\repos\News.DAL\obj\Debug\net5.0\News.DAL.genruntimeconfig.cache

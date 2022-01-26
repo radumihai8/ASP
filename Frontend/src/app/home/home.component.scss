@@ -1,0 +1,28 @@
+.article{
+  margin-top: 20px;
+}
+h1{
+  font-size: 30px;
+}
+.details{
+
+}
+
+::ng-deep .form mat-form-field{
+  display: block;
+}
+.cat-item:hover{
+  background-color: #bababa!important;
+}
+
+.current-category{
+  background-color: #cdcccc !important;
+
+}
+.list-group a{
+  margin-bottom: 10px;
+}
+
+li{
+  list-style: none;
+}

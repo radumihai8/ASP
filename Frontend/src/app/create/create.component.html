@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="form-section">
+    <h1 class="title">
+      Create an article
+    </h1>
+
+    <form [formGroup]="createForm" class="form">
+      <mat-form-field appearance="outline" class="d-block">
+        <input matInput placeholder="Title" formControlName="title" />
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-select placeholder="Select a category" formControlName="categoryId">
+          <mat-option *ngFor="let category of categories" value="{{category.id}}">{{ category.title }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <input matInput placeholder="Content"  formControlName="content" />
+      </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="create()">
+      Publish
+    </button>
+  </div>
+
+  <h1 class="title">
+    Create a category
+  </h1>
+
+  <form [formGroup]="createCategoryForm" class="form">
+    <mat-form-field appearance="outline" class="d-block">
+      <input matInput placeholder="title" formControlName="CategoryTitle" />
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="createCategory()">
+    Publish
+  </button>
+
+
+</div>

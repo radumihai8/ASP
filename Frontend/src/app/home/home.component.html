@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-10">
+    <div *ngFor="let article of news">
+
+      <div class="article">
+        <h1>{{article.title}}</h1>
+
+        <p class="text-secondary">Written by {{article.user.userName}} on {{article.date | date:'EEEE, MMMM d, y' }}</p>
+        <p class="badge bg-secondary">{{article.category.title}}</p>
+
+        <p>{{ ((article.content).length>30)? ( article.content | slice:0:30)+'..':(article.content) }}</p>
+
+
+        <a routerLink="/article/{{article.id}}" class="btn btn-dark">Read more</a>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div class="col-2">
+      <ul class="list-group" *ngFor="let category of categories">
+        <a *ngIf="category_id==category.id" class="cat-item current-category list-group-item text-center " routerLink="/category/{{category.id}}"><li > {{category.title}}</li> </a>
+        <a *ngIf="category_id!=category.id" class="cat-item list-group-item text-center " routerLink="/category/{{category.id}}"><li > {{category.title}}</li> </a>
+      </ul>
+  </div>
+</div>
+
+
+
+
+
