@@ -13,6 +13,7 @@ import {ToastrService} from "ngx-toastr";
 export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup = new FormGroup({
+    email: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
   });
@@ -32,9 +33,9 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.dataService.changeUserData(this.registerForm.value);
-    this.userService.register(this.registerForm.value.username, this.registerForm.value.password).subscribe(
+    this.userService.register(this.registerForm.value.email, this.registerForm.value.username, this.registerForm.value.password).subscribe(
       (result) => {
-        console.log(result);
+        //console.log(result);
         this.toastr.success("Your account was created!")
       },
       (error) => {

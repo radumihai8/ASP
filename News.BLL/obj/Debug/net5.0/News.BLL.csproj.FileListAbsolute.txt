@@ -12,4 +12,3 @@ C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.csproj.CoreCompile
 C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.dll
 C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\ref\News.BLL.dll
 C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.pdb
-C:\Users\Hust\source\repos\News.BLL\obj\Debug\net5.0\News.BLL.csproj.CopyComplete

@@ -29,7 +29,9 @@ namespace News.DAL
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Reaction> Reactions { get; set; }
         public DbSet<ArticleComment> ArticleComments { get; set; }
+        public DbSet<ArticleReaction> ArticleReactions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -44,6 +46,7 @@ namespace News.DAL
             modelBuilder.ApplyConfiguration(new ArticleConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ArticleCommentConfiguration());
+            modelBuilder.ApplyConfiguration(new ArticleReactionConfiguration());
             
         }
 

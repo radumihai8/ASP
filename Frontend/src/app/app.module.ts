@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import {CreateComponent} from "./create/create.component";
 import {MatSelectModule} from "@angular/material/select";
 import { ToastrModule } from 'ngx-toastr';
+import {GlobalConstants} from "./globals";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
         MaterialModule,
         HttpClientModule,
         MatSelectModule,
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
     ],
   providers: [],
   bootstrap: [AppComponent]

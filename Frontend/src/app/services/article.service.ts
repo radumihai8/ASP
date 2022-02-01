@@ -4,48 +4,44 @@ import { Router } from '@angular/router';
 import {News} from "../interfaces/News";
 import {formatDate} from "@angular/common";
 import {Observable} from "rxjs";
+import {GlobalConstants} from "../globals";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
-  public url = "https://localhost:5001/api/Articles/GetAll";
+  public url = GlobalConstants.apiURL;
   constructor(public http: HttpClient, private router: Router) { }
 
   getArticleById(id) {
-    this.url = "https://localhost:5001/api/Articles/Get/"+id;
-    return this.http.get<News>(this.url);
+    return this.http.get<News>(this.url+'/Articles/Get/'+id);
   }
 
-  addComment(text: string) {
+  addComment(text: string, article_id: number) {
+    let date = formatDate(new Date(), 'yyyy/MM/dd', 'en');
+    let uid = JSON.parse(atob(localStorage.getItem('token')!.split('.')[1]))['nameid'];
 
-
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${localStorage.getItem("token")}`, },
-      body: JSON.stringify({ content: text, articleId: 3, userId: 2, date: "2022-01-20T07:35:23.521Z"}),
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem("token")}` },
     };
-
-    fetch('https://localhost:5001/api/Comment/Add', requestOptions)
-      .then(response => response)
-      .then(data => {
-        console.log(data)
-
-
-      })
-      .catch(error => console.log(error));
-
+    let body = JSON.stringify({ content: text, articleId: article_id, userId: uid, date: date});
+    return this.http.post(this.url+'/Comment/Add',body, options);
 
 
   }
 
   public deleteComment(comment: Comment): Observable<any> {
     const options = {
-      headers: new HttpHeaders(),
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${localStorage.getItem("token")}` },
       body: comment
     };
-    return this.http.delete(`https://localhost:5001/api/Comment/Delete`, options);
+
+    return this.http.delete(this.url+'/Comment/Delete', options);
   }
 
 
@@ -59,7 +55,7 @@ export class ArticleService {
         "Authorization": `Bearer ${localStorage.getItem("token")}` },
     };
     let body = JSON.stringify({ title: title, content: content, date: date, categoryId: categoryId, userId: uid });
-    return this.http.post('https://localhost:5001/api/Articles/Add',body, options);
+    return this.http.post(this.url+'/Articles/Add',body, options);
 
   }
 

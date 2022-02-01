@@ -44,7 +44,8 @@ namespace News.Controllers
         }
 
         [HttpPost("Add")]
-        [Authorize("User")]
+        //LoggedIn - si pt Admin si pt User
+        [Authorize("LoggedIn")]
         public async Task<IActionResult> AddComment(ArticleComment comment)
         {
             await _commentRepository.Create(comment);
@@ -52,7 +53,7 @@ namespace News.Controllers
         }
 
         [HttpDelete("Delete")]
-        [Authorize("User")]
+        [Authorize("Admin")]
         public async Task<IActionResult> DeleteComment(ArticleComment comment)
         {
             await _commentRepository.Delete(comment);
@@ -60,7 +61,7 @@ namespace News.Controllers
         }
 
         [HttpPut("Update")]
-        [Authorize("User")]
+        [Authorize("Admin")]
         public async Task<IActionResult> UpdateComment(ArticleComment comment)
         {
             await _commentRepository.Update(comment);

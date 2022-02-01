@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using News.DAL;
 
 namespace News.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220131202904_AddedReactions")]
+    partial class AddedReactions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +188,7 @@ namespace News.DAL.Migrations
 
                     b.HasIndex("ReactionId");
 
-                    b.ToTable("ArticleReactions");
+                    b.ToTable("ArticleReaction");
                 });
 
             modelBuilder.Entity("News.DAL.Entities.Category", b =>
@@ -212,12 +214,12 @@ namespace News.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Name")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reactions");
+                    b.ToTable("Reaction");
                 });
 
             modelBuilder.Entity("News.DAL.Entities.Role", b =>

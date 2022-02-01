@@ -3,11 +3,14 @@ import { Router } from '@angular/router';
 import {catchError} from "rxjs";
 import {AbstractControl} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
+import {GlobalConstants} from "../globals";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  public url = GlobalConstants.apiURL;
+
 
   constructor(private router: Router,
   private toastr: ToastrService
@@ -22,7 +25,7 @@ export class AuthService {
       body: JSON.stringify({ email: username, password: password}),
     };
 
-    fetch('https://localhost:5001/api/Auth/Login', requestOptions)
+    fetch(this.url+'/Auth/Login', requestOptions)
       .then(response => response.json())
       .then(data =>
       {

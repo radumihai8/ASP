@@ -17,7 +17,9 @@ namespace News.DAL.Entities
         public Category Category { get; set; }
         public User User { get; set; }
         public virtual ICollection<ArticleComment> ArticleComment { get; set; }
-        
+
+        public virtual ICollection<ArticleReaction> ArticleReactions { get; set; }
+
 
     }
 }

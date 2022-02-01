@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,6 +59,7 @@ namespace News
             services.AddTransient<IArticleRepository, ArticleRepository>();
             services.AddTransient<ICommentRepository, CommentRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IReactionRepository, ReactionRepository>();
 
 
             services.AddSwaggerGen(c =>
@@ -75,6 +77,7 @@ namespace News
                 .AddAuthentication(options =>
                     {
                         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                     })
                     .AddJwtBearer("AuthScheme", options =>
@@ -107,8 +110,12 @@ namespace News
             services.AddAuthorization(opt =>
             {
                 opt.AddPolicy("Admin", policy => policy.RequireRole("Admin").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
+
                 opt.AddPolicy("User", policy => policy.RequireRole("User").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
+
+                opt.AddPolicy("LoggedIn", policy => policy.RequireRole("Admin", "User").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
             });
+
 
 
         }
@@ -137,6 +144,8 @@ namespace News
             });
 
             initialSeed.CreateRoles();
+
+
         }
     }
 }

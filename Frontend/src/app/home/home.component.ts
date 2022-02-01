@@ -47,10 +47,8 @@ export class HomeComponent implements OnInit {
 
   get_news(){
     if(!this.category_id){
-      console.log('aici');
       this.homeService.getAllNews().subscribe({
         next: (data: News[]) => {
-          console.log(data);
           this.news = data;
         },
         error: error => {
@@ -63,7 +61,6 @@ export class HomeComponent implements OnInit {
       console.log(this.category_id);
       this.homeService.getAllNewsByCategory(this.category_id).subscribe({
         next: (data: News[]) => {
-          console.log(data);
           this.news = data;
         },
         error: error => {
@@ -73,7 +70,7 @@ export class HomeComponent implements OnInit {
       })
       this.categoryService.getCategoryById(this.category_id).subscribe({
         next: (data: Category) => {
-          console.log(data);
+          //console.log(data);
           this.currentCategory = data;
         },
         error: error => {
@@ -95,7 +92,7 @@ export class HomeComponent implements OnInit {
 
     this.categoryService.getAllCategories().subscribe({
       next: (data: Category[]) => {
-        console.log(data);
+        //console.log(data);
         this.categories = data;
       },
       error: error => {

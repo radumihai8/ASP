@@ -7,6 +7,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Subscription} from "rxjs";
 import {User} from "../interfaces/User";
 import {AuthService} from "../services/auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-article',
@@ -51,7 +52,8 @@ export class ArticleComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private articleService: ArticleService,
     private dataService: DataService,
-    public authService: AuthService
+    public authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -62,7 +64,7 @@ export class ArticleComponent implements OnInit {
     });
     this.articleService.getArticleById(this.id).subscribe(
       (result: News) => {
-        console.log(result);
+        //console.log(result);
         this.news = result;
       },
       (error) => {
@@ -71,17 +73,29 @@ export class ArticleComponent implements OnInit {
     );
   }
 
-  addComment(){
-    this.articleService.addComment(this.commentForm.value.text);
+
+  addComment() {
+    this.articleService.addComment(this.commentForm.value.text, this.id).subscribe(
+      (result) => {
+        //console.log(result);
+        this.toastr.success("Comment posted!")
+      },
+      (error) => {
+        //console.error(error);
+        this.toastr.error("There was an error!")
+      }
+    );
   }
 
   public deleteComment(comment): void {
     this.articleService.deleteComment(comment).subscribe(
       (result) => {
-        console.log(result);
+        //console.log(result);
+        this.toastr.success("Comment deleted!")
       },
       (error) => {
-        console.error(error);
+        //console.error(error);
+        this.toastr.success("Comment deleted!")
       }
     );
   }
