@@ -58,6 +58,13 @@ namespace News.Controllers
             return Ok();
         }
 
+        [HttpPost("AddReaction")]
+        public async Task<IActionResult> AddReaction(ArticleReaction reaction)
+        {
+            await _articleRepository.AddReaction(reaction);
+            return Ok();
+        }
+
         [HttpPost("Delete")]
         [Authorize("Admin")]
         public async Task<IActionResult> DeleteArticle(Article article)

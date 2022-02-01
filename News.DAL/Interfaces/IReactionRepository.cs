@@ -14,7 +14,6 @@ namespace News.DAL.Interfaces
         Task<List<ArticleReaction>> GetAllByArticle(int id);
         Task<Reaction> GetById(int id);
         Task Create(Reaction reaction);
-        Task AssignToArticle(Reaction reaction, Article article);
         Task Update(Reaction reaction);
         Task Delete(Reaction reaction);
         Task<IQueryable<Reaction>> GetAllQuery();

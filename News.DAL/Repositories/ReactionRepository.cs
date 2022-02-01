@@ -17,10 +17,6 @@ namespace News.DAL.Repositories
         {
             _context = context;
         }
-        public Task AssignToArticle(Reaction reaction, Article article)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task Create(Reaction reaction)
         {

@@ -25,6 +25,12 @@ namespace News.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task AddReaction(ArticleReaction reaction)
+        {
+            await _context.ArticleReactions.AddAsync(reaction);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task Delete(Article article)
         {
             _context.Articles.Remove(article);

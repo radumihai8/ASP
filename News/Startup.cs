@@ -43,10 +43,10 @@ namespace News
             services.AddCors(options =>
             {
                 options.AddPolicy(name: SpecificOrigins,
-                                  builder =>
-                                  {
-                                      builder.WithOrigins("localhost:4200", "http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
-                                  });
+                    builder =>
+                    {
+                        builder.WithOrigins("localhost:4200", "http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                    });
             });
 
             services.AddControllers()
